@@ -16,7 +16,7 @@ if hour == "23":
 
 while running:
     entry = int(input("Welcome. What would you like to do?:\nLog a new food intake (1)\nAdd a new recipe (2)\n"
-                      "List Daily Intake (3)\nUpload data to Sheets (4) Exit (5)"))
+                      "List Daily Intake (3)\nUpload data to Sheets (4)\n Exit (5)"))
     match entry:
         case 1:
             new_intake()
