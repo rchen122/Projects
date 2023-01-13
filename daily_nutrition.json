@@ -1,0 +1,89 @@
+{
+    "calories": {
+        "amount": 2000
+    },
+    "calcium": {
+        "amount": 1300,
+        "units": "mg"
+    },
+    "fiber": {
+        "amount": 28,
+        "units": "g"
+    },
+    "fat": {
+        "amount": 78,
+        "units": "g"
+    },
+    "magnesium": {
+        "amount": 420,
+        "units": "mg"
+    },
+    "manganese": {
+        "amount": 2.3,
+        "units": "mg"
+    },
+    "phosphorus": {
+        "amount": 1250,
+        "units": "mg"
+    },
+    "potassium": {
+        "amount": 4700,
+        "units": "mg"
+    },
+    "vitamin a": {
+        "amount": 900,
+        "units": "mcg"
+    },
+    "vitamin b6": {
+        "amount": 1.7,
+        "units": "mg"
+    },
+    "vitamin c": {
+        "amount": 90,
+        "units": "mg"
+    },
+    "vitamin d": {
+        "amount": 20,
+        "units": "mcg"
+    },
+    "vitamin K": {
+        "amount": 120,
+        "units": "mcg"
+    },
+    "copper": {
+        "amount": 0.9,
+        "units": "mg"
+    },
+    "sodium": {
+        "amount": 2300,
+        "units": "mg"
+    },
+    "zinc": {
+        "amount": 11,
+        "units": "mg"
+    },
+    "cholesterol": {
+        "amount": 300,
+        "units": "mg"
+    },
+    "iron": {
+        "amount": 18,
+        "units": "mg"
+    },
+    "protein": {
+        "amount": 50,
+        "units": "g"
+    },
+    "saturated fat": {
+        "amount": 20,
+        "units": "g"
+    },
+    "added sugars": {
+        "amount": 50,
+        "units": "g"
+    },
+    "carbohydrate": {
+        "amount": 275,
+        "units": "g"
+    }
+}
