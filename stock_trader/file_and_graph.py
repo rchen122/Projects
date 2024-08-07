@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 
-
 # Loads json file
 def load_json(filename):
     try:
@@ -75,17 +74,9 @@ def plot_graph(df, meta_data, **kwargs):
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m-%d %H:%M'))
     plt.gca().xaxis.set_major_locator(mdates.HourLocator(interval=1))  # Set interval of ticks
     plt.gcf().autofmt_xdate()  # Rotate date labels
-
+    plt.grid(True)
     plt.ylabel("Close Price")
     plt.legend()
     plt.show()
 
-
-if __name__ == "__main__":
-    data = load_json("data.json") # will also be user input, need interface
-    meta_data, df = format(data, "5min")
-    SMAs = [20, 50] # ideally will be user input
-    start_date = end_date = "2024-08-01" # user input
-    df = generate_SMAs(df, SMAs)
-    plot_graph(df, meta_data, start_date=start_date, end_date=end_date, SMAs=SMAs)
 
