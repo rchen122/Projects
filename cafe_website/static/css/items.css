@@ -1,0 +1,39 @@
+
+.container {
+    display: flex;
+    gap: 20px; /* Adds space between menu and cart sections */
+}
+
+.menu, .cart {
+    flex: 1; /* Ensures both sections take equal space */
+    border: 1px solid #ccc; /* Optional: Adds a border for better visibility */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds some depth */
+}
+
+.menu table, .cart table {
+    width: 100%; /* Makes the tables take full width of their containers */
+    border-collapse: collapse;
+}
+
+.menu th, .cart th, .menu td, .cart td {
+    border: 1px solid #ddd; /* Adds borders to table cells */
+    padding: 8px;
+    text-align: left;
+}
+
+.menu h2, .cart h2 {
+    text-align: center; /* Centers the section headings */
+}
+
+
+.order-form {
+    display: flex;
+    flex-direction: row;
+    gap: 10%; /* Adds spacing between the buttons */
+    justify-content: center; /* Centers the buttons horizontally */
+}
+
+.submit-order {
+    margin-top: 10px;
+}

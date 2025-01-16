@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block style%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block head %}
+<title>Cafe Main Menu</title>
+{% endblock %}
+
+{% block body %}
+<div class="emp-info">
+    <h1 style="text-align: center">Cafe Main Menu</h1>
+    <div>
+        {% if employee %}
+            Current Employee ID: {{employee}}
+        {% else %}
+            Current Employee, Please Sign In
+            <form class="main-button" action="/emp" method="POST">
+                <input type="submit" name="action" value="Register New Employee">
+                <input type="submit" name="action" value="Sign In">
+            </form>
+        {% endif %}
+    </div>
+    {% if employee %}
+        <form class="main-button" action="/" method="POST">
+            <input type="hidden" name="source" value="Order or Sign Out">
+            <input type="submit" name="action" value="Start An Order">
+            <input type="submit" name="action" value="Sign Out">
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

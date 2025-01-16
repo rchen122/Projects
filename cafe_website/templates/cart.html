@@ -1,0 +1,31 @@
+<div id="cart" class="cart">
+    <h2>Your Cart</h2>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+        </tr>
+        {% if cart %}
+            {% for item_id, quantity in cart.items() %}
+                <tr>
+                    <td>{{ items_map[item_id|int].name }}</td>
+                    <td>{{ quantity }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="2">Your cart is empty.</td>
+            </tr>
+        {% endif %}
+    </table>
+
+    <form action="/clear_session" method="POST" class="order-form">
+        <input type="hidden" name="source" value="Return from Cart">
+        <input type="submit" name="action" value="Return to Main Menu" style="width: 40%;">
+        <input type="submit" name="action" value="Clear Your Cart" style="width: 40%;">
+    </form>
+    <form action="/submit_order" method="POST" class="submit-order">
+        <input type="submit" value="Submit Order" style="width: 90%;">
+    </form>
+
+</div>

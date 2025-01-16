@@ -1,0 +1,13 @@
+.emp-info {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.main-button {
+    display: block;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}

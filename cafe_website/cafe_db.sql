@@ -1,0 +1,51 @@
+use cafe_db;
+-- INITIALIZE TABLES
+-- Employees
+create table employee (
+  emp_id INT AUTO_INCREMENT PRIMARY KEY,
+  emp_name VARCHAR(20) NOT NULL,
+  emp_position VARCHAR(255) NOT NULL,
+  emp_phonenum VARCHAR(20)
+);
+
+-- Customers (mainly for registered members)
+create table customer (
+  cust_id INT AUTO_INCREMENT PRIMARY KEY,
+  cust_firstname varchar(10) NOT NULL,
+  cust_lastname varchar(10) NOT NULL,
+  cust_phonenum VARCHAR(20)
+);
+
+-- Individual items on menu
+create table item (
+  item_id INT AUTO_INCREMENT PRIMARY KEY,
+  item varchar(50)  NOT NULL , 
+  item_cat varchar(50)  NOT NULL ,
+  item_size varchar(20)  NOT NULL ,
+  item_price decimal(7,2)  NOT NULL
+);
+
+-- Customer Orders
+create table orders (
+  order_id INT AUTO_INCREMENT PRIMARY KEY,
+  emp_id int,
+  order_ts timestamp DEFAULT CURRENT_TIMESTAMP,
+  cust_id int not null,
+  item_id int not null,
+  quantity int not null,
+  total_price DECIMAL(10,2) not null,
+  foreign key (emp_id) references employee(emp_id),
+  foreign key (cust_id) references customer(cust_id),
+  foreign key (item_id) references item(item_id)
+);
+
+-- Order items and quantities on orders
+create table orderItems (
+    order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    item_id INT,
+    quantity INT,
+    foreign KEY (order_id) references orders(order_id)
+);
+
+show tables;

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block style%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/employee.css') }}">
+{% endblock %}
+
+{% block head %}
+<title>Login or Register</title>
+{% endblock %}
+
+{% block body %}
+<div class="login-container">
+    {% if action=="Sign In" %}
+        <h1>Login</h1>
+        <form onsubmit="return check_credentials(event)" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        
+    {% elif action=="Register New Employee" %}
+        <h1>Register New Employee</h1>
+        <form action="/new_emp" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="position">Position</label>
+            <input type="text" id="position" name="position" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    
+    {% else %}
+    Error
+    {% endif %}
+
+</div>
+
+<script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+{% endblock %}
