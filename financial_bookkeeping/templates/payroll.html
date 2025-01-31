@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Payroll History</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Employee</th>
+                <th>Salary ($)</th>
+                <th>Federal Tax ($)</th>
+                <th>State Tax ($)</th>
+                <th>SS Tax ($)</th>
+                <th>Medicare Tax ($)</th>
+                <th>Amount Paid ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payroll in payroll_history %}
+            <tr>
+                <td>{{ payroll["date"] }}</td>
+                <td>{{ payroll["employee"] }}</td>
+                <td>{{ payroll["salary"] }}</td>
+                <td>{{ payroll["federal_tax"] }}</td>
+                <td>{{ payroll["state_tax"] }}</td>
+                <td>{{ payroll["ss_tax"] }}</td>
+                <td>{{ payroll["medicare_tax"] }}</td>
+                <td>{{ payroll["amount_paid"] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

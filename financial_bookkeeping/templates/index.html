@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+    /* Center the main container */
+    .container-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Define the width of the content to be the middle half */
+    .container {
+        display: flex;
+        justify-content: center;
+        max-width: 50%;  /* Ensures it takes up half the page */
+        width: 100%;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .btn-custom {
+        width: 200px;  /* Fixed button width */
+        margin: 5px;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid black;
+        background-color: #f8f8f8;
+    }
+
+    .btn-bottom {
+        width: 220px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .time {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+{% endblock %}
+
+{% block head %}
+<title>Computer Program TE 566</title>
+{% endblock %}
+
+{% block body %}
+<!-- Center the entire layout -->
+<div class="container-wrapper">
+    <div class="container">
+        <div class="column">
+            <form action="/employee" method="POST">
+                <button class="btn btn-custom" name="button" value="View Employees">View Employees</button>
+                <button class="btn btn-custom" name="button" value="Add Employees">Add Employees</button>
+                <button class="btn btn-custom" name="button" value="Pay an Employee">Pay an Employee</button>
+                <button class="btn btn-custom" name="button" value="View Payroll Events">View Payroll Events</button>
+            </form>
+        </div>
+        <div class="column">
+            <form action="/customer" method="POST">
+                <button class="btn btn-custom" name="button" value="View Customers">View Customers</button>
+                <button class="btn btn-custom" name="button" value="Add Customers">Add Customers</button>
+                <button class="btn btn-custom" name="button" value="Create Invoice">Create Invoice</button>
+                <button class="btn btn-custom" name="button" value="Invoice History">View Invoice History</button>
+                <!-- <button class="btn btn-custom" name="button" value="View Expense Accounts">View Expense Accounts</button> -->
+                <!-- <button class="btn btn-custom" name="button" value="Pay a Fixed Monthly Bill">Pay a Fixed Monthly Bill</button> -->
+                <!-- <button class="btn btn-custom" name="button" value="View Paid Expenses">View Paid Expenses</button> -->
+            </form>
+        </div>
+        <div class="column">
+            <form action="/logistics" method="POST">
+                <button class="btn btn-custom" name="button" value="View Vendors">View Vendors</button>
+                <button class="btn btn-custom" name="button" value="Add Vendors">Add Vendors</button>
+                <button class="btn btn-custom" name="button" value="Create PO">Create PO</button>
+                <button class="btn btn-custom" name="button" value="View Inventory">View Inventory</button>
+                <button class="btn btn-custom" name="button" value="View PO History">View PO History</button>
+                <!-- <button class="btn btn-custom" name="button" value="Build Units">Build Units</button> -->
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Center the bottom buttons -->
+<div class="container-wrapper">
+    <div class="container" style="justify-content: space-evenly;">
+        <form action="/finance" method="POST">
+            <button class="btn btn-custom btn-bottom" name="button" value="View the P&L">View the P&L</button>
+            <button class="btn btn-custom btn-bottom" name="button" value="View the Balance">View the Balance</button>
+        </form>
+    </div>
+</div>
+
+<div class="time">
+    Current Simulated Time: {{time}}
+    <form action="/update_time" method="POST">
+        <button class="btn btn-custom btn-bottom" name="button" value="update time">Advance Current Date By One Month</button>
+    </form>
+</div>
+{% endblock %}

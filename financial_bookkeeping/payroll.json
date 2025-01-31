@@ -1,0 +1,12 @@
+[
+    {
+        "date": "02-01-2025",
+        "employee": "John Doe",
+        "salary": 12500.0,
+        "federal_tax": 2375.0,
+        "state_tax": 618.75,
+        "ss_tax": 775.0,
+        "medicare_tax": 181.25,
+        "amount_paid": 8550.0
+    }
+]

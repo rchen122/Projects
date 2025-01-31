@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .back-button {
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+    }
+    .back-button:hover {
+        background-color: #45a049;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<h1>Vendor List</h1>
+<button class="back-button" onclick="window.location.href='/'">Back to Home</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Vendor Name</th>
+            <th>Part</th>
+            <th>Price/Unit</th>
+            <th>Address 1</th>
+            <th>Address 2</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vendor in vendors %}
+        <tr>
+            <td>{{ vendor['Company Name'] }}</td>
+            <td>{{ vendor['Part'] }}</td>
+            <td>{{ vendor['Price/Unit'] }}</td>
+            <td>{{ vendor['Address 1'] }}</td>
+            <td>{{ vendor['Address 2'] }}</td>
+            <td>{{ vendor['City'] }}</td>
+            <td>{{ vendor['State'] }}</td>
+            <td>{{ vendor['Zip'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock%}

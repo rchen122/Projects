@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Employee</title>
+</head>
+<body>
+
+    <h1>Select Employee to Pay</h1>
+
+    <form action="/pay_employee" method="POST">
+        <label for="employee">Choose an employee:</label>
+        <select name="employee" id="employee">
+            {% for employee in employees %}
+            <option value="{{ employee }}">{{ employee }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Pay Employee</button>
+    </form>
+
+    {% if selected_employee %}
+    <h2>Selected Employee: {{ selected_employee }}</h2>
+    {% endif %}
+
+</body>
+</html>

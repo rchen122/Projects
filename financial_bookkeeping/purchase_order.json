@@ -1,0 +1,74 @@
+[
+    {
+        "date": "02-01-2025",
+        "Part": "Wheel",
+        "Price/Unit": 0.01,
+        "Quantity": 280000,
+        "value": 2800.0,
+        "Paid payable": 1
+    },
+    {
+        "date": "02-01-2025",
+        "Part": "Windshield Glass",
+        "Price/Unit": 0.05,
+        "Quantity": 35000,
+        "value": 1750.0,
+        "Paid payable": 1
+    },
+    {
+        "date": "02-01-2025",
+        "Part": "Interior",
+        "Price/Unit": 0.05,
+        "Quantity": 35000,
+        "value": 1750.0,
+        "Paid payable": 1
+    },
+    {
+        "date": "02-01-2025",
+        "Part": "Axle",
+        "Price/Unit": 0.01,
+        "Quantity": 140000,
+        "value": 1400.0,
+        "Paid payable": 1
+    },
+    {
+        "date": "02-01-2025",
+        "Part": "Cab",
+        "Price/Unit": 0.1,
+        "Quantity": 35000,
+        "value": 3500.0,
+        "Paid payable": 1
+    },
+    {
+        "date": "02-01-2025",
+        "Part": "Body",
+        "Price/Unit": 0.1,
+        "Quantity": 35000,
+        "value": 3500.0,
+        "Paid payable": 1
+    },
+    {
+        "date": "02-01-2025",
+        "Part": "Box",
+        "Price/Unit": 0.05,
+        "Quantity": 35000,
+        "value": 1750.0,
+        "Paid payable": 1
+    },
+    {
+        "date": "02-01-2025",
+        "Part": "Tank",
+        "Price/Unit": 0.1,
+        "Quantity": 35000,
+        "value": 3500.0,
+        "Paid payable": 1
+    },
+    {
+        "date": "02-01-2025",
+        "Part": "Windshield Glass",
+        "Price/Unit": 0.05,
+        "Quantity": 1000,
+        "value": 50.0,
+        "Paid payable": 1
+    }
+]

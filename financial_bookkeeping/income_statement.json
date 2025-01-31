@@ -1,0 +1,12 @@
+{
+    "Revenue": {
+        "Sales": 50000.0,
+        "COGS": 11400.0
+    },
+    "Expenses": {
+        "Payroll": 8550.0,
+        "Payroll Withholding": 3950.0,
+        "Bills": 0,
+        "Annual Expenses": 0
+    }
+}

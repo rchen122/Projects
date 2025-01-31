@@ -1,0 +1,18 @@
+{
+    "Assets": {
+        "Current Assets": {
+            "Cash": 217500.0,
+            "Accounts Receivable": 0.0,
+            "Inventory": 8600.0
+        },
+        "Fixed Assets": {
+            "Property/Building": 0
+        }
+    },
+    "Liabilities": {
+        "Current Liabilities": {
+            "Accounts Payable": 0.0
+        },
+        "Long Term Liabilities": {}
+    }
+}

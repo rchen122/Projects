@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create PO</title>
+</head>
+<body>
+
+    <h1>Select Vendor</h1>
+
+    <form action="/process_PO" method="POST">
+        <label for="vendor">Part:</label>
+        <select name="vendor" id="vendor">
+            {% for part in parts %}
+            <option value="{{ part }}">{{ part }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="amount">Quantity</label>
+        <input type="text" id="amount" name="amount" required>
+        <button type="submit">Create PO</button>
+    </form>
+
+</body>
+</html>

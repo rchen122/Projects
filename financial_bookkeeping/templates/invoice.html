@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Invoice</title>
+</head>
+<body>
+
+    <h1>Select Customer</h1>
+
+    <form action="/process_invoice" method="POST">
+        <label for="customer">Choose a customer:</label>
+        <select name="customer" id="customer">
+            {% for customer in customers %}
+            <option value="{{ customer }}">{{ customer }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="amount">Amount</label>
+        <input type="text" id="amount" name="amount" required>
+        <button type="submit">Create Invoice</button>
+    </form>
+    <h3>Number of Units: {{units}}</h3>
+
+</body>
+</html>
