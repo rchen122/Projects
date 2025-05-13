@@ -69,6 +69,8 @@ def plot_graph(df, meta_data, **kwargs):
     if "SMAs" in keys:
         for SMAs in kwargs["SMAs"]:
             plt.plot(df[f"SMA_{SMAs}"], label=f"{SMAs} SMA")
+
+
     plt.title(f"{meta_data['Symbol']} Stock Price at {meta_data['Interval']} Interval")
     plt.xlabel("Date")
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m-%d %H:%M'))
