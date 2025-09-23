@@ -1,11 +1,6 @@
 import tkinter as tk
 import pandas as pd
-# Example dataset
-cards = [
-    {"word": "你好", "pinyin": "nǐ hǎo", "english": "hello"},
-    {"word": "谢谢", "pinyin": "xiè xie", "english": "thank you"},
-    {"word": "再见", "pinyin": "zài jiàn", "english": "goodbye"},
-]
+
 
 class DataLoader:
     def __init__(self, size):
@@ -26,6 +21,9 @@ class FlashcardApp:
         self.dataset = self.dataLoader.get_set()
         self.index = 0
         self.flipped = False
+        self.repeat = False
+        self.correct_count = 0
+        self.repeat_count = 0
 
         self.revisit = set()
         self.current_set = set(range(len(self.dataset))) #initialize with all cards in current set
@@ -43,14 +41,25 @@ class FlashcardApp:
         btn_frame = tk.Frame(root)
         btn_frame.pack(pady=10)
 
+        self.correct_cnt = tk.Label(btn_frame, text=f"Correct: {self.index - self.repeat_count}") 
+        self.correct_cnt.grid(row=0, column=1, padx=5)
+        self.repeat_cnt = tk.Label(btn_frame, text=f"Repeated: {self.repeat_count}") 
+        self.repeat_cnt.grid(row=0, column=3, padx=5)
+
         correct_btn = tk.Button(btn_frame, text="Continue", command=self.next_card)
-        correct_btn.grid(row=0, column=0, padx=5)
+        correct_btn.grid(row=1, column=0, padx=5)
 
         repeat_btn = tk.Button(btn_frame, text="Repeat", command=self.repeat_card)
-        repeat_btn.grid(row=0, column=1, padx=5)
+        repeat_btn.grid(row=1, column=1, padx=5)
 
         new_btn = tk.Button(btn_frame, text="New set", command=self.get_new_set)
-        new_btn.grid(row=0, column=5, padx=5)
+        new_btn.grid(row=1, column=2, padx=5)
+
+        self.repeat_label = tk.Label(btn_frame, text=f"Repeat: {str(self.repeat)}")
+        self.repeat_label.grid(row=1, column=3, padx=5)
+
+        self.counter_label = tk.Label(btn_frame, text=f"{self.index} / {len(self.current_set)}")
+        self.counter_label.grid(row=1, column=4, padx=10)
 
         self.show_front()
 
@@ -58,12 +67,20 @@ class FlashcardApp:
         self.flipped = False
         word = self.dataset.iloc[self.index, 0]
         self.card_text.config(text=word)
+        self.update_labels()
+
 
     def show_back(self):
         self.flipped = True
         pinyin = self.dataset.iloc[self.index, 1]
         english = self.dataset.iloc[self.index, 2]
         self.card_text.config(text=f"{pinyin}\n{english}")
+
+    def update_labels(self):
+        self.repeat_label.config(text=f"Repeat: {str(self.repeat)}")
+        self.counter_label.config(text=f"{self.index + 1} / {len(self.current_set)}")
+        self.correct_cnt.config(text=f"Correct: {self.index - self.repeat_count}")
+        self.repeat_cnt.config(text=f"Repeated: {self.repeat_count}")
 
     def flip_card(self, event=None):
         if self.flipped:
@@ -77,9 +94,11 @@ class FlashcardApp:
                 self.current_set = self.revisit
                 self.revisit = set()
                 self.index = 0
+                self.repeat = True
             else:
                 print("Reached the end")
-                self.root.destroy()
+                # self.root.destroy()
+                self.get_new_set()
         else:
             self.index += 1
 
@@ -87,11 +106,13 @@ class FlashcardApp:
 
     def repeat_card(self):
         self.revisit.add(self.index)
+        self.repeat_count += 1
         self.next_card()
 
     def get_new_set(self):
         self.dataset = self.dataLoader.get_set()
         self.index = 0
+        self.repeat = False
         self.show_front()
 
 if __name__ == "__main__":
